@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REP BARDEI TIUIU!</title>
+    <style>
+        body{
+            background-color: rgb(246, 238, 253);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .res{
+            background-color: blueviolet;
+            color: aliceblue;
+            font-weight: 700;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .btns{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .padrao{
+            z-index: 20;
+
+            background-color: rgb(255, 116, 171);
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 40px;
+            width: 160px;
+            border-radius: 15px;
+            box-shadow: 5px 5px rgb(102, 50, 50);
+            cursor: pointer;
+
+            font-weight: 700;
+        }
+        img{
+            margin-top: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>FELIZ NIVER JUUUUU!</h1>
+        <div class="res">Te amo muuuuuuuuuitão</div>
+        <p>Quer ser minha amiga pelo resto da humanidade?</p>
+        <div class="btns">
+            <div class="padrao aceito">Aceito</div>
+            <div class="btn padrao">Não quero, ECA!</div>
+        </div>
+        <div class="img">
+            <img src="rep bardei.jpg" alt="coisinha">
+        </div>
+    </div>
+    <script src="jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.img').hide();
+            $('.btn').click(function(){
+                var wBtn = Number($('.btn').width());
+                var hBtn = Number($('.btn').height());
+
+                var width = $(document).width();
+                var height = $(document).height();
+                var x = Number(Math.round(Math.random() * width));
+                var y = Number(Math.round(Math.random() * height));
+
+                var calx = Number(x - wBtn);
+                var caly = Number(y - hBtn);
+
+                if(calx < 0){
+                    calx*=-1
+                }
+                if(caly < 0){
+                    caly*=-1
+                }
+
+                $(".btn").offset({top:caly,left:calx});
+            })
+
+            $('.aceito').click(function(){
+                $('.img').show();
+            })
+        })
+    </script>
+</body>
+</html>
